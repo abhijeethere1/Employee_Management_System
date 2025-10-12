@@ -1,11 +1,10 @@
-import React from 'react'
+import React from "react";
+import { useAuth } from "../context/authContext";
 
 const AdminDashboard = () => {
-  return (
-    <div>
-      
-    </div>
-  )
-}
+  const { user } = useAuth();
 
-export default AdminDashboard
+  return <div>AdminDashboard {user && user.name}</div>;
+};
+
+export default AdminDashboard;
