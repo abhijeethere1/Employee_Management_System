@@ -19,7 +19,7 @@ const Add = () => {
     console.log(leave);
     try {
       const response = await axios.post(
-        `http://localhost:5000/api/leave/add`,
+        `https://employee-management-system-tluc.vercel.app/api/leave/add`,
         leave,
         {
           headers: {

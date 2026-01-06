@@ -12,11 +12,14 @@ const List = () => {
     const fetchEmployees = async () => {
       setEmpLoading(true);
       try {
-        const response = await axios.get("http://localhost:5000/api/employee", {
-          headers: {
-            Authorization: `Bearer ${localStorage.getItem("token")}`,
-          },
-        });
+        const response = await axios.get(
+          "https://employee-management-system-tluc.vercel.app/api/employee",
+          {
+            headers: {
+              Authorization: `Bearer ${localStorage.getItem("token")}`,
+            },
+          }
+        );
         if (response.data.success) {
           let sno = 1;
           const data = await response.data.employees.map((emp) => ({
@@ -29,7 +32,7 @@ const List = () => {
               <img
                 width={40}
                 className="rounded-full"
-                src={`http://localhost:5000/${emp.userId.profileImage}`}
+                src={`https://employee-management-system-tluc.vercel.app/${emp.userId.profileImage}`}
               />
             ),
             action: <EmployeeButtons Id={emp._id} />,

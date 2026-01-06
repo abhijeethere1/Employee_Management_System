@@ -16,7 +16,7 @@ const authContext = ({ children }) => {
       try {
         if (token) {
           const response = await axios.get(
-            "http://localhost:5000/api/auth/verify",
+            "https://employee-management-system-tluc.vercel.app/api/auth/verify",
             {
               headers: {
                 Authorization: `Bearer ${token}`,
