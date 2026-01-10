@@ -1,3 +1,13 @@
+## 🔑 Demo Login Credentials
+
+### 👨‍💼 Admin
+- **Email:** admin@gmail.com
+- **Password:** admin
+
+### 👤 Employee
+- **Email:** employee@gmail.com
+- **Password:** employee
+
 # 🧑‍💼 Employee Management System (EMS)
 
 A full-stack **Employee Management System** built to manage employee records, and leave requests efficiently with role-based access control.
