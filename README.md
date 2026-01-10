@@ -1,8 +1,13 @@
 # 🧑‍💼 Employee Management System (EMS)
 
-A full-stack **Employee Management System** built to manage employee records, attendance, and leave requests efficiently with role-based access control.
+A full-stack **Employee Management System** built to manage employee records, and leave requests efficiently with role-based access control.
 
-<img src="https://meramonitor.com/wp-content/uploads/2025/09/employee-management-system.png" alt="Employee Management System" width="800"/>
+<p align="center">
+  <img src="https://meramonitor.com/wp-content/uploads/2025/09/employee-management-system.png" 
+       alt="Employee Management System" 
+       width="800"/>
+</p>
+
 ---
 
 ## 📌 Features
@@ -61,4 +66,5 @@ A full-stack **Employee Management System** built to manage employee records, at
 
 ### Authentication
 - JSON Web Tokens (JWT)
+
 
