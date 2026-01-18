@@ -15,7 +15,7 @@ app.use(
   cors({
     origin: "https://employee-management-system-sandy-nine.vercel.app",
     credentials: true,
-  })
+  }),
 );
 app.use(express.json());
 app.use(express.static("public/uploads"));
