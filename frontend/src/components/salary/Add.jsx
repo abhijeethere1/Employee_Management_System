@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { fetchDepartments, getEmployees } from "../../utils/EmployeeHelper";
 import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
-
+import { ClipLoader } from "react-spinners";
 const Add = () => {
   const [salary, setSalary] = useState({
     employeeId: null,
@@ -67,7 +67,7 @@ const Add = () => {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`,
           },
-        }
+        },
       );
       if (response.data.success) {
         navigate("/admin-dashboard/employees");
@@ -189,7 +189,9 @@ const Add = () => {
           </form>
         </div>
       ) : (
-        <div>Loading...</div>
+        <div>
+          <ClipLoader color="#36d7b7" loading={true} size={50} />
+        </div>
       )}
     </>
   );

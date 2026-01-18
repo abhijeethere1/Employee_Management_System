@@ -4,7 +4,7 @@ import { useAuth } from "../../context/authContext";
 import { useState } from "react";
 import { useEffect } from "react";
 import axios from "axios";
-
+import { ClipLoader } from "react-spinners";
 const List = () => {
   const [leaves, setLeaves] = useState([]);
   let sno = 1;

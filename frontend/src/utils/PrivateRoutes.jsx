@@ -2,7 +2,7 @@ import React from "react";
 import { useAuth } from "../context/authContext";
 import Login from "../pages/Login";
 import { Navigate } from "react-router-dom";
-
+import { ClipLoader } from "react-spinners";
 const PrivateRoutes = ({ children }) => {
   const { user, loading } = useAuth();
   if (loading) {

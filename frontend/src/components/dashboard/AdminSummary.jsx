@@ -10,7 +10,7 @@ import {
   FaUsers,
 } from "react-icons/fa";
 import axios from "axios";
-
+import { ClipLoader } from "react-spinners";
 const AdminSummary = () => {
   const [summary, setSummary] = useState(null);
   useEffect(() => {
@@ -22,7 +22,7 @@ const AdminSummary = () => {
             headers: {
               Authorization: `Bearer ${localStorage.getItem("token")}`,
             },
-          }
+          },
         );
         setSummary(summary.data);
       } catch (error) {
@@ -36,7 +36,11 @@ const AdminSummary = () => {
   });
 
   if (!summary) {
-    return <div>Loading...</div>;
+    return (
+      <div>
+        <ClipLoader color="#36d7b7" loading={true} size={50} />
+      </div>
+    );
   }
 
   return (

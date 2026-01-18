@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-
+import { ClipLoader } from "react-spinners";
 const Detail = () => {
   const { id } = useParams();
   const [leave, setLeave] = useState(null);

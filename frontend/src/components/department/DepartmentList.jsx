@@ -4,6 +4,7 @@ import DataTable from "react-data-table-component";
 import { columns, DepartmentButtons } from "../../utils/DepartmentHelper";
 import axios from "axios";
 import { useState } from "react";
+import { ClipLoader } from "react-spinners";
 const DepartmentList = () => {
   const [departments, setDepartments] = useState([]);
   const [depLoading, setDepLoading] = useState(false);
@@ -23,7 +24,7 @@ const DepartmentList = () => {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`,
           },
-        }
+        },
       );
       if (response.data.success) {
         let sno = 1;
@@ -55,7 +56,7 @@ const DepartmentList = () => {
 
   const filterDepartments = (e) => {
     const records = departments.filter((dep) =>
-      dep.dep_name.toLowerCase().includes(e.target.value.toLowerCase())
+      dep.dep_name.toLowerCase().includes(e.target.value.toLowerCase()),
     );
     setFilteredDepartments(records);
   };
@@ -63,7 +64,9 @@ const DepartmentList = () => {
   return (
     <>
       {depLoading ? (
-        <div>Loading...</div>
+        <div>
+          <ClipLoader color="#36d7b7" loading={true} size={50} />
+        </div>
       ) : (
         <div className="p-5">
           <div className="text-center">

@@ -3,7 +3,7 @@ import React from "react";
 import { useState } from "react";
 import { useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-
+import { ClipLoader } from "react-spinners";
 const EditDepartment = () => {
   const { id } = useParams();
 
@@ -20,7 +20,7 @@ const EditDepartment = () => {
             headers: {
               Authorization: `Bearer ${localStorage.getItem("token")}`,
             },
-          }
+          },
         );
         if (response.data.success) {
           setDepartment(response.data.department);
@@ -51,7 +51,7 @@ const EditDepartment = () => {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`,
           },
-        }
+        },
       );
       if (response.data.success) {
         navigate("/admin-dashboard/departments");
@@ -66,7 +66,9 @@ const EditDepartment = () => {
   return (
     <>
       {depLoading ? (
-        <div>Loading...</div>
+        <div>
+          <ClipLoader color="#36d7b7" loading={true} size={50} />
+        </div>
       ) : (
         <div className="max-w-3xl mx-auto mt-10 bg-white p-8 rounded-md shadow-md w-96">
           <h2 className="text-2xl font-bold mb-6">Edit Department</h2>

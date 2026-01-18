@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import axios from "axios";
-
+import { ClipLoader } from "react-spinners";
 const View = () => {
   const [salaries, setSalaries] = useState([]);
   const [filteredSalaries, setFilteredSalaries] = useState([]);
@@ -16,7 +16,7 @@ const View = () => {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`,
           },
-        }
+        },
       );
 
       if (response.data.success) {
@@ -36,7 +36,7 @@ const View = () => {
     const q = e.target.value.toLowerCase();
 
     const filteredRecords = salaries.filter((salary) =>
-      salary.employeeId.employeeId.toLowerCase().includes(q)
+      salary.employeeId.employeeId.toLowerCase().includes(q),
     );
 
     setFilteredSalaries(filteredRecords);
@@ -45,7 +45,9 @@ const View = () => {
   return (
     <>
       {filteredSalaries === null ? (
-        <div>Loading ...</div>
+        <div>
+          <ClipLoader color="#36d7b7" loading={true} size={50} />
+        </div>
       ) : (
         <div className="overflow-x-auto p-5">
           <div className="text-center">
