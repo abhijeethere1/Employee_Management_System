@@ -19,7 +19,7 @@ const List = () => {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`,
           },
-        }
+        },
       );
 
       if (response.data.success) {
@@ -34,7 +34,11 @@ const List = () => {
     fetchLeaves();
   }, []);
   if (!leaves) {
-    return <div>Loading...</div>;
+    return (
+      <div>
+        <ClipLoader color="#36d7b7" loading={true} size={50} />
+      </div>
+    );
   }
   return (
     <div className="p-6">
@@ -89,8 +93,8 @@ const List = () => {
                     leave.status === "Approved"
                       ? "bg-green-600"
                       : leave.status === "Rejected"
-                      ? "bg-red-600"
-                      : "bg-yellow-500"
+                        ? "bg-red-600"
+                        : "bg-yellow-500"
                   }`}
                 >
                   {leave.status}

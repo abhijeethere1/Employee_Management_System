@@ -15,7 +15,7 @@ const Table = () => {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`,
           },
-        }
+        },
       );
       if (response.data.success) {
         let sno = 1;
@@ -30,7 +30,7 @@ const Table = () => {
           days:
             Math.ceil(
               (new Date(leave.endDate) - new Date(leave.startDate)) /
-                (1000 * 60 * 60 * 24)
+                (1000 * 60 * 60 * 24),
             ) + 1,
 
           status: leave.status,
@@ -52,13 +52,13 @@ const Table = () => {
   }, []);
   const filterByInput = (e) => {
     const data = leaves.filter((leave) =>
-      leave.employeeId.toLowerCase().includes(e.target.value.toLowerCase())
+      leave.employeeId.toLowerCase().includes(e.target.value.toLowerCase()),
     );
     setFilteredLeaves(data);
   };
   const filterByButton = (status) => {
     const data = leaves.filter((leave) =>
-      leave.status.toLowerCase().includes(status.toLowerCase())
+      leave.status.toLowerCase().includes(status.toLowerCase()),
     );
     setFilteredLeaves(data);
   };
@@ -104,7 +104,9 @@ const Table = () => {
           </div>
         </div>
       ) : (
-        <div>Loading....</div>
+        <div>
+          <ClipLoader color="#36d7b7" loading={true} size={50} />
+        </div>
       )}
     </>
   );

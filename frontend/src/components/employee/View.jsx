@@ -14,7 +14,7 @@ const View = () => {
             headers: {
               Authorization: `Bearer ${localStorage.getItem("token")}`,
             },
-          }
+          },
         );
         if (response.data.success) {
           setEmployee(response.data.employee);
@@ -86,7 +86,9 @@ const View = () => {
           </div>
         </div>
       ) : (
-        <div>Loading....</div>
+        <div>
+          <ClipLoader color="#36d7b7" loading={true} size={50} />
+        </div>
       )}
     </>
   );

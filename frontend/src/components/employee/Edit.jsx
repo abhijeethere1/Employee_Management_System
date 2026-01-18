@@ -30,7 +30,7 @@ const Edit = () => {
             headers: {
               Authorization: `Bearer ${localStorage.getItem("token")}`,
             },
-          }
+          },
         );
         if (response.data.success) {
           const employee = response.data.employee;
@@ -66,7 +66,7 @@ const Edit = () => {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`,
           },
-        }
+        },
       );
       if (response.data.success) {
         navigate("/admin-dashboard/employees");
@@ -173,7 +173,9 @@ const Edit = () => {
           </form>
         </div>
       ) : (
-        <div>Loading...</div>
+        <div>
+          <ClipLoader color="#36d7b7" loading={true} size={50} />
+        </div>
       )}
     </>
   );
