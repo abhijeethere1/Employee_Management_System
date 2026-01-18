@@ -27,6 +27,12 @@ app.use("/api/leave", leaveRouter);
 app.use("/api/setting", settingRouter);
 app.use("/api/dashboard", dashboardRouter);
 
-app.listen(process.env.PORT, () => {
-  console.log(`Server is running on PORT ${process.env.PORT}`);
-});
+// ONLY listen if running locally
+if (process.env.NODE_ENV !== "production") {
+  app.listen(process.env.PORT, () => {
+    console.log(`Server is running on PORT ${process.env.PORT}`);
+  });
+}
+
+// THIS IS THE FIX:
+export default app;
